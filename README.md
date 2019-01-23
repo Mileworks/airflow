@@ -30,7 +30,10 @@ under the License.
 
 -- BranchPythonOperator:  
 1.把这个operator 当做ifelse 来理解即可 ，即条件判断来执行哪个operator
-2.provide_context ： 这个参数用来传递参数
+2.provide_context ： 这个参数用来传递参数  
+
+-- sensor :
+1.把sensor 理解为特殊的operator 即可
 ```
 
 
