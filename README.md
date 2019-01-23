@@ -22,6 +22,7 @@ under the License.
 ## 问题记录 ：tip  
 ```
 -- 说明2个参数的问题：  
+
 1.start_date ：项目执行开始时间，指当前制定时间过了12点之后的时间。  
 2.schedule_interval ：指当前后面重复执行的时候间隔时间，其中None表明当前task执行一次之后就不执行了。  
 3.根据上面的两个时间，有个数据回填的概念 backfill ：指从start_date（肯定是个之前的时间） 的时间开始，  
@@ -29,10 +30,12 @@ under the License.
 4.UI 界面上有个执行按钮 ， 点击就开始执行。  
 
 -- BranchPythonOperator:  
+
 1.把这个operator 当做ifelse 来理解即可 ，即条件判断来执行哪个operator
 2.provide_context ： 这个参数用来传递参数  
 
 -- sensor :
+
 1.Airflow 中有一类 Operator 被称为 Sensor，Sensor 可以感应预先设定的条件是否满足（如：某个时间点是否
 达到、某条 MySQL 记录是否被更新、某个 DAG 是否完成），当满足条件后 Sensor 作业变为 Success 使得下游的
 作业能够执行。Sensor 的功能很强大但却带来一个问题，假如我们有一个 Sensor 用于检测某个 MySQL 记录是否被更新，
