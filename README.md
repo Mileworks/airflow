@@ -19,6 +19,19 @@ under the License.
 
 # Apache Airflow
 
+##问题记录 ：tip
+"""
+说明2个参数的问题：
+1.start_date ：项目执行开始时间，指当前制定时间过了12点之后的时间。
+2.schedule_interval ：指当前后面重复执行的时候间隔时间，其中None表明当前task执行一次之后就不执行了。
+3.根据上面的两个时间，有个数据回填的概念 backfill ：指从start_date（肯定是个之前的时间） 的时间开始，然后按照执行的时间间隔（schedule_interval）把
+数据处理。
+4.UI 界面上有个执行按钮 ， 点击就开始执行。
+"""
+
+
+
+
 [![PyPI version](https://badge.fury.io/py/apache-airflow.svg)](https://badge.fury.io/py/apache-airflow)
 [![Build Status](https://travis-ci.org/apache/airflow.svg?branch=master)](https://travis-ci.org/apache/airflow)
 [![Coverage Status](https://img.shields.io/codecov/c/github/apache/airflow/master.svg)](https://codecov.io/github/apache/airflow?branch=master)
