@@ -29,7 +29,7 @@ under the License.
 4.UI 界面上有个执行按钮 ， 点击就开始执行。  
 
 -- BranchPythonOperator:  
-把这个operator 当做ifelse 来理解即可 ，即条件判断
+把这个operator 当做ifelse 来理解即可 ，即条件判断来执行哪个operator
 
 ```
 
