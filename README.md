@@ -34,6 +34,9 @@ under the License.
 
 -- sensor :
 1.把sensor 理解为特殊的operator 即可
+2.Airflow 中有一类 Operator 被称为 Sensor，Sensor 可以感应预先设定的条件是否满足（如：某个时间点是否达到、某条 MySQL 记录是否被更新、某个 DAG 是否完成），当满足条件后 Sensor 作业变为 Success 使得下游的作业能够执行。Sensor 的功能很强大但却带来一个问题，假如我们有一个 Sensor 用于检测某个 MySQL 记录是否被更新，在 Sensor 作业启动后 3 个小时这个 MySQL 记录才被更新。于是我们的这个 Sensor 占用了一个 Worker 整整 3 小时，这显然是一个极大的浪费。  
+因此我们需要一个 Sensor 的替代方案，既能满足 Sensor 原来的功能，又能节省 Worker 资源。有一个办法是不使用 Sensor，直接使用 Python Operator 判断预先设定的条件是否满足，如果不满足直接 raise Exception，然后将这个作业的 retry_delay（重试间隔时间） 设为每次检测的间隔时间，retries（重试次数） 设为最长检测时间除以 retry_delay，即满足：最长检测时间 = retries * retry_delay。这样既不会长时间占用 Worker 资源，又可以满足 Sensor 原来的功能。  
+
 ```
 
 
